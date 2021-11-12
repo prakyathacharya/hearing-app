@@ -1,0 +1,21 @@
+version : 0.1
+phases:
+  install:
+    commands:
+      - echo installing depandancies...
+      - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+      - . ~/.nvm/nvm.sh
+      - nvm install node
+  pre_build:
+    commands:
+      - echo Installing dependancies...
+      - npm install
+  build:
+    commands:
+      - echo Building static assets...........
+      - npm run build
+artifacts:
+  files:
+    - "**/*"
+  discard-paths: no
+  base-directory: build
