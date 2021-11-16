@@ -1,0 +1,21 @@
+version : 0.1
+phases:
+  install:
+    commands:
+      - echo installing depandancies...
+      - apt update
+      - apt install -y nodejs
+      - apt install npm
+  pre_build:
+    commands:
+      - echo Installing dependancies...
+      - npm install
+  build:
+    commands:
+      - echo Building static assets...........
+      - npm run build
+artifacts:
+  files:
+    - "**/*"
+  discard-paths: no
+  base-directory: build
